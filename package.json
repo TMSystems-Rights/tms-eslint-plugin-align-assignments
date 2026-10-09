@@ -1,0 +1,53 @@
+{
+	"name": "@tms/eslint-plugin-align-assignments",
+	"version": "1.0.0",
+	"description": "TMS extension of assignment alignment for ESLint, with transparent comment-line support.",
+	"license": "MIT",
+	"author": "TMSystems-Rights",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments.git"
+	},
+	"homepage": "https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments#readme",
+	"bugs": {
+		"url": "https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments/issues"
+	},
+	"main": "index.cjs",
+	"exports": {
+		".": "./index.cjs"
+	},
+	"files": [
+		"index.cjs",
+		"lib/",
+		"LICENSE",
+		"THIRD_PARTY_NOTICES.md",
+		"README.md"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"test": "node --test",
+		"check": "npm run lint && npm test",
+		"pack:check": "npm pack --dry-run"
+	},
+	"engines": {
+		"node": ">=18.18.0"
+	},
+	"peerDependencies": {
+		"eslint": "^9.0.0 || ^10.0.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "9.39.2",
+		"eslint": "9.39.2",
+		"eslint10": "npm:eslint@10.11.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"eslint-plugin",
+		"alignment",
+		"assignments"
+	]
+}
