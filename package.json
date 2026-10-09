@@ -1,6 +1,6 @@
 {
 	"name": "@tms/eslint-plugin-align-assignments",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "TMS extension of assignment alignment for ESLint, with transparent comment-line support.",
 	"license": "MIT",
 	"author": "TMSystems-Rights",

@@ -83,6 +83,27 @@ for (const { name, Linter } of eslintVersions) {
 		assert.equal(result.messages.length, 0);
 	});
 
+	test(`${name}: JSDocコメントを挟むexport付き変数宣言を揃える`, () => {
+		const result = verifyAndFix(Linter, [
+			'/** ウィンドウ最小幅 */',
+			'export const MIN_WINDOW_WIDTH = 900;',
+			'/** ウィンドウ最小高さ */',
+			'export const MIN_WINDOW_HEIGHT = 560;',
+			'/** カスタムタイトルバー高さ */',
+			'export const TITLE_BAR_OVERLAY_HEIGHT = 48;'
+		].join('\n'));
+
+		assert.equal(result.output, [
+			'/** ウィンドウ最小幅 */',
+			'export const MIN_WINDOW_WIDTH         = 900;',
+			'/** ウィンドウ最小高さ */',
+			'export const MIN_WINDOW_HEIGHT        = 560;',
+			'/** カスタムタイトルバー高さ */',
+			'export const TITLE_BAR_OVERLAY_HEIGHT = 48;'
+		].join('\n'));
+		assert.equal(result.messages.length, 0);
+	});
+
 	test(`${name}: 連続する行コメントとブロックコメントを透過する`, () => {
 		const result = verifyAndFix(Linter, [
 			'let a = 1;',
