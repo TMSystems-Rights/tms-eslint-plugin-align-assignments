@@ -5,7 +5,7 @@ const alignAssignments = require('./lib/rules/align-assignments.cjs');
 const plugin = {
 	meta: {
 		name: '@tms/eslint-plugin-align-assignments',
-		version: '1.0.0',
+		version: '1.0.1',
 		namespace: 'align-assignments'
 	},
 	configs: {},

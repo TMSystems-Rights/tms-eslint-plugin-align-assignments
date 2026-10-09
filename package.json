@@ -1,6 +1,6 @@
 {
 	"name": "@tms/eslint-plugin-align-assignments",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "TMS extension of assignment alignment for ESLint, with transparent comment-line support.",
 	"license": "MIT",
 	"author": "TMSystems-Rights",
@@ -13,11 +13,16 @@
 		"url": "https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments/issues"
 	},
 	"main": "index.cjs",
+	"types": "index.d.cts",
 	"exports": {
-		".": "./index.cjs"
+		".": {
+			"types": "./index.d.cts",
+			"default": "./index.cjs"
+		}
 	},
 	"files": [
 		"index.cjs",
+		"index.d.cts",
 		"lib/",
 		"LICENSE",
 		"THIRD_PARTY_NOTICES.md",
@@ -25,8 +30,9 @@
 	],
 	"scripts": {
 		"lint": "eslint .",
-		"test": "node --test",
-		"check": "npm run lint && npm test",
+		"test": "node --test test/*.test.mjs",
+		"test:types": "tsc --project test/types/tsconfig.json",
+		"check": "npm run lint && npm test && npm run test:types",
 		"pack:check": "npm pack --dry-run"
 	},
 	"engines": {
@@ -38,7 +44,8 @@
 	"devDependencies": {
 		"@eslint/js": "9.39.2",
 		"eslint": "9.39.2",
-		"eslint10": "npm:eslint@10.11.0"
+		"eslint10": "npm:eslint@10.11.0",
+		"typescript": "5.9.2"
 	},
 	"publishConfig": {
 		"access": "public"
