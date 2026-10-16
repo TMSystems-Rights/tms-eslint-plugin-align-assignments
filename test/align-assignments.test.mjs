@@ -68,6 +68,19 @@ for (const { name, Linter } of eslintVersions) {
 		assert.equal(result.messages.length, 0);
 	});
 
+	test(`${name}: 識別子短縮後に以前の整列位置を引き継がない`, () => {
+		const result = verifyAndFix(Linter, [
+			"const aa    = 'aa';",
+			"const bb = 'bb';"
+		].join('\n'));
+
+		assert.equal(result.output, [
+			"const aa = 'aa';",
+			"const bb = 'bb';"
+		].join('\n'));
+		assert.equal(result.messages.length, 0);
+	});
+
 	test(`${name}: コメント行を透過して代入文を揃える`, () => {
 		const result = verifyAndFix(Linter, [
 			"const hoge = 'hoge';",
