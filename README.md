@@ -62,12 +62,32 @@ const alignAssignments = require('@tms/eslint-plugin-align-assignments');
 
 ## オプション
 
-`requiresOnly: true`を指定すると、`require()`を含む宣言だけを整列します。
+`requiresOnly: true`を指定すると、変数宣言のうち、宣言文内に`require()`を含むものだけを整列対象にします。CommonJS形式の依存モジュール宣言だけを整列し、通常の変数宣言には手を加えたくない場合に利用できます。
 
 ```javascript
 rules: {
 	'align-assignments/align-assignments': ['error', { requiresOnly: true }]
 }
+```
+
+たとえば、次のコードに自動修正を適用します。
+
+```javascript
+const fs = require('node:fs');
+const path = require('node:path');
+
+const port = 3000;
+const developmentMode = true;
+```
+
+`require()`を含む宣言だけが整列され、通常の変数宣言は変更されません。
+
+```javascript
+const fs   = require('node:fs');
+const path = require('node:path');
+
+const port = 3000;
+const developmentMode = true;
 ```
 
 ## 対応環境
