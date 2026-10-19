@@ -17,9 +17,13 @@ const other = 'value';
 
 ## インストール
 
+このパッケージはnpmレジストリには公開していません。GitHub Releaseで公開しているバージョン固定の`.tgz`を指定してインストールします。
+
 ```shell
-npm install --save-dev @tms/eslint-plugin-align-assignments
+npm install --save-dev "https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments/releases/download/v1.0.3/tms-eslint-plugin-align-assignments-1.0.3.tgz"
 ```
+
+更新時は[Releases](https://github.com/TMSystems-Rights/tms-eslint-plugin-align-assignments/releases)で新しいバージョンを確認し、URL内のバージョン番号とファイル名を変更してください。
 
 ## Flat Config
 
