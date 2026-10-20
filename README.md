@@ -49,9 +49,7 @@ export default [
 ```javascript
 import alignAssignments from '@tms/eslint-plugin-align-assignments';
 
-export default [
-	alignAssignments.configs['flat/recommended']
-];
+export default [alignAssignments.configs['flat/recommended']];
 ```
 
 CommonJSの設定では`require()`を利用できます。
@@ -83,7 +81,7 @@ const developmentMode = true;
 `require()`を含む宣言だけが整列され、通常の変数宣言は変更されません。
 
 ```javascript
-const fs   = require('node:fs');
+const fs = require('node:fs');
 const path = require('node:path');
 
 const port = 3000;
